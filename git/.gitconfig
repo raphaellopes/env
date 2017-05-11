@@ -3,8 +3,8 @@
 [push]
   default = simple
 [user]
-  name = Guilherme Fiuza
-  email = gui.fiuza@gmail.com
+  name = Raphael Lopes
+  email = raphael.lopes@studo.education
 [alias]
   undo = reset --soft HEAD~1
   find-deleted = rev-list -n 1 HEAD
