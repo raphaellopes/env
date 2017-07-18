@@ -65,14 +65,14 @@ fi
 
 
 # Android SDK
-if hash brew 2> /dev/null; then
-  ANDROID_HOME="$(brew --prefix android)"
-else 
-  ANDROID_HOME="$HOME/.android"
-fi
-if [[ -d "$ANDROID_HOME" ]]; then
-  export ANDROID_HOME
-fi
+#if hash brew 2> /dev/null; then
+#  ANDROID_HOME="$(brew --prefix android)"
+#else 
+#  ANDROID_HOME="$HOME/.android"
+#fi
+#if [[ -d "$ANDROID_HOME" ]]; then
+#  export ANDROID_HOME
+#fi
 
 
 # PATH
