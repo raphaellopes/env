@@ -103,3 +103,7 @@ hrm () {
 # TMUX
 # if [ "$TMUX" = "" ]; then tmux new-session -A -s main; fi
 # if [ "$TMUX" = "" ]; then tmux; fi
+#
+# this loads NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
