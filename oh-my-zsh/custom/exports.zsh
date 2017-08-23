@@ -60,28 +60,29 @@ fi
 
 
 # Android SDK
-if hash brew 2> /dev/null; then
-  ANDROID_HOME="$(brew --prefix android)"
-else 
-  ANDROID_HOME="$HOME/Programs/android/sdks"
-fi
-if [[ -d "$ANDROID_HOME" ]]; then
-  export ANDROID_HOME
-fi
+#if hash brew 2> /dev/null; then
+#  ANDROID_HOME="$(brew --prefix android)"
+#else 
+#  ANDROID_HOME="$HOME/Programs/android/sdks"
+#fi
+#if [[ -d "$ANDROID_HOME" ]]; then
+#  export ANDROID_HOME
+#fi
 
 
 # Android Tools
-ANDROID_TOOLS="$ANDROID_HOME/tools"
-if [[ -d "$ANDROID_TOOLS" ]]; then
-  export ANDROID_TOOLS
-  PATH="$ANDROID_TOOLS:$PATH"
-fi
+#ANDROID_TOOLS="$ANDROID_HOME/tools"
+#if [[ -d "$ANDROID_TOOLS" ]]; then
+#  export ANDROID_TOOLS
+#  PATH="$ANDROID_TOOLS:$PATH"
+#fi
+
 # Android Platform Tools
-ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
-if [[ -d "$ANDROID_PLATFORM_TOOLS" ]]; then
-  export ANDROID_PLATFORM_TOOLS
-  PATH="$ANDROID_PLATFORM_TOOLS:$PATH"
-fi
+#ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
+#if [[ -d "$ANDROID_PLATFORM_TOOLS" ]]; then
+#  export ANDROID_PLATFORM_TOOLS
+#  PATH="$ANDROID_PLATFORM_TOOLS:$PATH"
+#fi
 
 
 # Android SDK
