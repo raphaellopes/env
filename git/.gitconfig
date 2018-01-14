@@ -4,7 +4,7 @@
   default = simple
 [user]
   name = Raphael Lopes
-  email = raphael.lopes@studo.education
+  email = ph.campanario07@gmail.com
 [alias]
   undo = reset --soft HEAD~1
   find-deleted = rev-list -n 1 HEAD
