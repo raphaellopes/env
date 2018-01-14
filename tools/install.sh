@@ -47,7 +47,7 @@ main() {
     printf "${RED}Error: git is not installed${NORMAL}\n\n"
     exit 1
   }
-  env git clone --depth=1 https://github.com/fiuzagr/env.git $MY_ENV || {
+  env git clone --depth=1 https://github.com/raphaellopes/env.git $MY_ENV || {
     printf "${RED}Error: git clone of env repo failed${NORMAL}\n\n"
     exit 1
   }
