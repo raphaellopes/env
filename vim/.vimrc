@@ -40,7 +40,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " My runtime
-let &runtimepath.=',' . expand($MY_ENV . '/vim/plugins/myenv')
+if !exists('g:vimCustomPath')
+  let g:vimCustomPath = $MY_ENV . '/vim'
+endif
+let &runtimepath .= ',' . g:vimCustomPath . '/plugins/myenv'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -238,6 +241,7 @@ map <C-l> <C-W>l
 " Useful mappings for managing  buffer
 map <leader>bd :Bdelete<cr>
 map <leader>ba :bufdo Bdelete!<cr>
+map <leader>bw :bufdo w<cr>
 map <leader>bn :bn<cr>
 map <leader>bp :bp<cr>
 
@@ -286,6 +290,11 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" copy with xclip
+map <F6> :w !xclip -sel clip<CR><CR>
+vmap <F6> :!xclip -f -sel clip<CR>
+map <F7> :-1r !xclip -o -sel clip<CR>
+
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
@@ -476,7 +485,7 @@ let g:tmuxline_powerline_separators = 0
 
 " CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'wa'
 let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
 
 " nerdtree
@@ -530,6 +539,13 @@ Plug 'wavded/vim-stylus'
 " Vim Javascript syntax highlight
 Plug 'pangloss/vim-javascript'
 
+" Vim GraphQL
+Plug 'jparise/vim-graphql'
+
+" Vim Flow JS
+Plug 'flowtype/vim-flow'
+let g:flow#enable = 0
+
 " Vim EJS
 Plug 'nikvdp/ejs-syntax'
 
@@ -537,29 +553,26 @@ Plug 'nikvdp/ejs-syntax'
 Plug 'burnettk/vim-angular'
 
 " Vim JSBeautify
-Plug 'maksimr/vim-jsbeautify'
+" Plug 'maksimr/vim-jsbeautify'
 ".vimrc
 "map <c-f> :call JsBeautify()<cr>
 " or
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for json
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 " for jsx
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 " for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType ejs noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" autocmd FileType ejs noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " Vim TypeScript syntax
 Plug 'leafgarland/typescript-vim'
 
 " Vim JSX syntax highlight
 Plug 'mxw/vim-jsx'
-
-" Vim GraphQL
-Plug 'jparise/vim-graphql'
 
 " Vim JSON
 Plug 'elzr/vim-json'
@@ -626,6 +639,12 @@ Plug 'airblade/vim-gitgutter'
 
 " Neoformat
 Plug 'sbdchd/neoformat'
+
+" Asynchronous Lint Engine
+Plug 'w0rp/ale'
+let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+" let g:ale_linters = {'javascript': ['']}
+let g:ale_fix_on_save = 1
 
 " Load env plugins
 call myenv#load#plug()
