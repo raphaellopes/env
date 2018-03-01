@@ -644,6 +644,7 @@ Plug 'fiuzagr/ale', { 'branch': 'sonarjs' }
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_linters = {'javascript': ['sonarjs', 'eslint']}
 let g:ale_fix_on_save = 1
+let g:ale_echo_cursor = 1
 
 " Load env plugins
 call myenv#load#plug()
