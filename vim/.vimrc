@@ -634,7 +634,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 "let g:indent_guides_guide_size = 1
 
 " Git Gutter
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 
 " Neoformat
 Plug 'sbdchd/neoformat'
@@ -644,7 +644,11 @@ Plug 'fiuzagr/ale', { 'branch': 'sonarjs' }
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_linters = {'javascript': ['sonarjs', 'eslint']}
 let g:ale_fix_on_save = 1
-let g:ale_echo_cursor = 1
+let g:ale_echo_cursor = 0
+let g:ale_set_signs = 1
+" let g:ale_sign_column_always = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 
 " Load env plugins
 call myenv#load#plug()
