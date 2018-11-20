@@ -639,16 +639,29 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Neoformat
 Plug 'sbdchd/neoformat'
 
+Plug 'StanAngeloff/php.vim'
+
 " Asynchronous Lint Engine
 Plug 'fiuzagr/ale', { 'branch': 'sonarjs' }
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
-let g:ale_linters = {'javascript': ['sonarjs', 'eslint']}
+let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'php': ['php_cs_fixer']}
+let g:ale_linters = {'javascript': ['sonarjs', 'eslint'], 'php': ['phpcs']}
 let g:ale_fix_on_save = 1
-let g:ale_echo_cursor = 0
+let g:ale_echo_cursor = 1
 let g:ale_set_signs = 1
 " let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
+
+" Tests
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" php
+let g:ale_php_phpcs_executable = 'phpcs' 
+let g:ale_php_cs_fixer_executable = 'php_cs_fixer'
+let g:ale_php_phpcs_standard = 'PSR2'
+
 
 " Load env plugins
 call myenv#load#plug()
