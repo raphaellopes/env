@@ -41,7 +41,7 @@ ZSH_THEME="miloshadzic"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
- HIST_STAMPS="yyyy-mm-dd"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -51,7 +51,8 @@ ZSH_CUSTOM=$MY_ENV/oh-my-zsh/custom/
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode osx brew brew-cask docker docker-compose)
+# plugins=(git vi-mode osx brew brew-cask docker docker-compose)
+plugins=(git vi-mode docker docker-compose)
 
 # Load all of the plugins that were defined in ~/.zshrc
 #for plugin ($plugins); do
@@ -107,3 +108,7 @@ hrm () {
 # this loads NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# kainat
+  export PATH="$PATH:$HOME/Workspace/projects/kainat/bin"
+
