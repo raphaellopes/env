@@ -110,5 +110,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # kainat
-  export PATH="$PATH:$HOME/Workspace/projects/kainat/bin"
+export PATH="$PATH:$HOME/Workspace/projects/kainat/bin"
+
+# Android
+export ANDROID_HOME="$HOME/Android/Sdk"
+if [ -d "$ANDROID_HOME" ];
+then
+  export PATH="$PATH:$ANDROID_HOME/tools"
+  export PATH="$PATH:$ANDROID_HOME/platform-tools"
+fi
+
 
