@@ -551,6 +551,13 @@ Plug 'nikvdp/ejs-syntax'
 " Vim Angular
 Plug 'burnettk/vim-angular'
 
+" Vim for nunjunks (jinja)
+Plug 'lepture/vim-jinja'
+
+" Node
+Plug 'sidorares/node-vim-debugger'
+Plug 'moll/vim-node'
+
 " Vim JSBeautify
 " Plug 'maksimr/vim-jsbeautify'
 ".vimrc
@@ -578,9 +585,12 @@ Plug 'elzr/vim-json'
 
 " Vim Editor Config
 Plug 'editorconfig/editorconfig-vim'
+let g:EditorConfig_max_line_indicator = 'line'
+
 
 " Multiple Cursor mode
 Plug 'terryma/vim-multiple-cursors'
+
 " Prevent conflict with neocomplete
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
