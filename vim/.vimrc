@@ -605,7 +605,6 @@ function! Multiple_cursors_after()
   endif
 endfunction
 
-
 " Increment numbers
 Plug 'triglav/vim-visual-increment'
 set nrformats=alpha
