@@ -201,7 +201,8 @@
 # .target
 
 # Tern plugin
-# .tern-project
+.tern-project
+.tern-port
 
 # TeXlipse plugin
 # .texlipse
