@@ -3,42 +3,69 @@
 " FRONT-END Plugin
 """"""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""
-
-" YouCompleteMe
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
-
-" phpcomplete
-"Plug 'shawncplus/phpcomplete.vim'
-
-" Neocomplete
-Plug 'Shougo/neocomplete.vim'
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-" Plugin key-mappings.
-inoremap <expr><C-Space> neocomplete#start_manual_complete('omni')
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+let g:deoplete#enable_at_startup = 1
+
+" Whether to include the types of the completions in the result data. Default: 0
+let g:deoplete#sources#ternjs#types = 1
+
+" Whether to include the distance (in scopes for variables, in prototypes for 
+" properties) between the completions and the origin position in the result 
+" data. Default: 0
+let g:deoplete#sources#ternjs#depths = 1
+
+" Whether to include documentation strings (if found) in the result data.
+" Default: 0
+let g:deoplete#sources#ternjs#docs = 0
+
+" When on, only completions that match the current word at the given point will
+" be returned. Turn this off to get all results, so that you can filter on the 
+" client side. Default: 1
+let g:deoplete#sources#ternjs#filter = 0
+
+" Whether to use a case-insensitive compare between the current word and 
+" potential completions. Default 0
+let g:deoplete#sources#ternjs#case_insensitive = 1
+
+" When completing a property and no completions are found, Tern will use some 
+" heuristics to try and return some properties anyway. Set this to 0 to 
+" turn that off. Default: 1
+let g:deoplete#sources#ternjs#guess = 0
+
+" Determines whether the result set will be sorted. Default: 1
+let g:deoplete#sources#ternjs#sort = 0
+
+" When disabled, only the text before the given position is considered part of 
+" the word. When enabled (the default), the whole variable name that the cursor
+" is on will be included. Default: 1
+let g:deoplete#sources#ternjs#expand_word_forward = 0
+
+" Whether to ignore the properties of Object.prototype unless they have been 
+" spelled out by at least two characters. Default: 1
+let g:deoplete#sources#ternjs#omit_object_prototype = 0
+
+" Whether to include JavaScript keywords when completing something that is not 
+" a property. Default: 0
+let g:deoplete#sources#ternjs#include_keywords = 1
+
+" If completions should be returned when inside a literal. Default: 1
+let g:deoplete#sources#ternjs#in_literal = 0
+
+
+"Add extra filetypes
+let g:deoplete#sources#ternjs#filetypes = [
+	\ 'jsx',
+	\ 'vue',
+	\ ]
+
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
@@ -48,41 +75,12 @@ function! s:my_cr_function()
   " For no inserting <CR> key.
   "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-h> deoplete#close_popup()."\<C-h>"
+inoremap <expr><BS> deoplete#close_popup()."\<C-h>"
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 

@@ -558,22 +558,6 @@ Plug 'lepture/vim-jinja'
 Plug 'sidorares/node-vim-debugger'
 Plug 'moll/vim-node'
 
-" Vim JSBeautify
-" Plug 'maksimr/vim-jsbeautify'
-".vimrc
-"map <c-f> :call JsBeautify()<cr>
-" or
-" autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for json
-" autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-" for jsx
-" autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-" for html
-" autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" autocmd FileType ejs noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-" autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-
 " Vim TypeScript syntax
 Plug 'leafgarland/typescript-vim'
 
