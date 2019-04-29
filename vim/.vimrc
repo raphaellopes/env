@@ -564,6 +564,9 @@ Plug 'leafgarland/typescript-vim'
 " Vim JSX syntax highlight
 Plug 'mxw/vim-jsx'
 
+" Vim Handlebars syntax highlight
+Plug 'mustache/vim-mustache-handlebars'
+
 " Vim JSON
 Plug 'elzr/vim-json'
 
