@@ -5,6 +5,7 @@
 """"""""""""""""""""""""""""""""""""
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'roxma/vim-hug-neovim-rpc'
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 else
   Plug 'Shougo/deoplete.nvim'
@@ -60,9 +61,13 @@ let g:deoplete#sources#ternjs#include_keywords = 1
 let g:deoplete#sources#ternjs#in_literal = 0
 
 
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent", "--no-port-file"]
+
 "Add extra filetypes
 let g:deoplete#sources#ternjs#filetypes = [
 	\ 'jsx',
+	\ 'javascript.jsx',
 	\ 'vue',
 	\ ]
 
