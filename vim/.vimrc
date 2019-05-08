@@ -176,6 +176,13 @@ set noswapfile
 
 au BufRead,BufNewFile *.shtm set filetype=html
 au BufRead,BufNewFile *.shtml set filetype=html
+au BufRead .jscsrc set filetype=json
+au BufRead .jshintrc set filetype=json
+au BufRead .bowerrc set filetype=json
+au BufRead .babelrc set filetype=json
+au BufRead .eslintrc set filetype=json
+au BufRead .tslintrc set filetype=json
+au BufRead .dojorc set filetype=json
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -572,7 +579,9 @@ Plug 'elzr/vim-json'
 
 " Vim Editor Config
 Plug 'editorconfig/editorconfig-vim'
-let g:EditorConfig_max_line_indicator = 'line'
+
+" Styled components syntax highlight
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 
 " Multiple Cursor mode
@@ -641,6 +650,7 @@ Plug 'StanAngeloff/php.vim'
 Plug 'fiuzagr/ale', { 'branch': 'sonarjs' }
 let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'php': ['php_cs_fixer']}
 let g:ale_linters = {'javascript': ['sonarjs', 'eslint'], 'php': ['phpcs']}
+
 let g:ale_fix_on_save = 1
 let g:ale_echo_cursor = 1
 let g:ale_set_signs = 1
