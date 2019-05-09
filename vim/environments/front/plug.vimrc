@@ -6,7 +6,7 @@
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern@0.21' }
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
