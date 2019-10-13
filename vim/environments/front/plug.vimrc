@@ -6,7 +6,15 @@
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern@0.21' }
+  Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
+  Plug 'carlitux/deoplete-ternjs'
+  " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern@0.21' }
+
+  "Typescript Plugins
+  Plug 'mhartington/nvim-typescript', {'for': ['typescript', 'tsx'], 'do': './install.sh' }
+  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+  Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
+  Plug 'mhartington/deoplete-typescript'
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
