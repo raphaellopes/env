@@ -183,6 +183,8 @@ au BufRead .babelrc set filetype=json
 au BufRead .eslintrc set filetype=json
 au BufRead .tslintrc set filetype=json
 au BufRead .dojorc set filetype=json
+au BufRead .scss set filetype=css
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -648,8 +650,19 @@ Plug 'StanAngeloff/php.vim'
 
 " Asynchronous Lint Engine
 Plug 'fiuzagr/ale', { 'branch': 'sonarjs' }
-let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'php': ['php_cs_fixer']}
-let g:ale_linters = {'javascript': ['sonarjs', 'eslint'], 'php': ['phpcs']}
+let g:ale_fixers = {
+  \'javascript': ['prettier', 'eslint'], 
+  \'typescript': ['prettier', 'tslint'], 
+  \'php': ['php_cs_fixer'],
+  \'css': ['prettier', 'stylelint'],
+  \'scss': ['prettier', 'stylelint'],
+\}
+
+let g:ale_linters = {
+  \'javascript': ['sonarjs', 'eslint'], 
+  \'typescript': ['tsserver'], 
+  \'php': ['phpcs']
+\}
 
 let g:ale_fix_on_save = 1
 let g:ale_echo_cursor = 1
