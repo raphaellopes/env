@@ -184,6 +184,8 @@ au BufRead .eslintrc set filetype=json
 au BufRead .tslintrc set filetype=json
 au BufRead .dojorc set filetype=json
 au BufRead .scss set filetype=css
+au BufNewFile,BufRead *.ts setlocal filetype=typescript
+au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -569,6 +571,7 @@ Plug 'moll/vim-node'
 
 " Vim TypeScript syntax
 Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 
 " Vim JSX syntax highlight
 Plug 'mxw/vim-jsx'
