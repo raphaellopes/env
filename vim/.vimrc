@@ -588,6 +588,8 @@ Plug 'editorconfig/editorconfig-vim'
 " Styled components syntax highlight
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
+Plug 'sheerun/vim-mdx-js'
+
 
 " Multiple Cursor mode
 Plug 'terryma/vim-multiple-cursors'
