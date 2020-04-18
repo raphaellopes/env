@@ -335,6 +335,8 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufWrite *.js :call DeleteTrailingWS()
 autocmd BufWrite *.jsx :call DeleteTrailingWS()
+autocmd BufWrite *.ts :call DeleteTrailingWS()
+autocmd BufWrite *.tsx :call DeleteTrailingWS()
 autocmd BufWrite *.php :call DeleteTrailingWS()
 
 
@@ -494,9 +496,9 @@ Plug 'edkolev/tmuxline.vim'
 let g:tmuxline_powerline_separators = 0
 
 " CtrlP
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_working_path_mode = 'wa'
-let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
+" Plug 'ctrlpvim/ctrlp.vim'
+" let g:ctrlp_working_path_mode = 'wa'
+" let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
 
 " nerdtree
 Plug 'scrooloose/nerdtree'
@@ -587,6 +589,8 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Styled components syntax highlight
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
+Plug 'sheerun/vim-mdx-js'
 
 
 " Multiple Cursor mode
