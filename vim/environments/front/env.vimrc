@@ -163,6 +163,9 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " FZF
 let g:fzf_layout = { 'down': '~40%' }
 
+nnoremap <silent> <C-p> :Files<cr>
+nnoremap <silent> <C-b> :Buffers<cr>
+
 " preview window
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
