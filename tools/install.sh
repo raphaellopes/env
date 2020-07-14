@@ -29,11 +29,11 @@ main() {
     MY_ENV=~/.my-env
   fi
 
-  if [ -d "$MY_ENV" ]; then
-    printf "${YELLOW}You already have MY_ENV installed.${NORMAL}\n"
-    printf "You'll need to remove $MY_ENV if you want to re-install.\n"
-    exit
-  fi
+  #if [ -d "$MY_ENV" ]; then
+  #  printf "${YELLOW}You already have MY_ENV installed.${NORMAL}\n"
+  #  printf "You'll need to remove $MY_ENV if you want to re-install.\n"
+  #  exit
+  #fi
 
   # Prevent the cloned repository from having insecure permissions. Failing to do
   # so causes compinit() calls to fail with "command not found: compdef" errors
@@ -42,15 +42,15 @@ main() {
   # precedence over umasks except for filesystems mounted with option "noacl".
   umask g-w,o-w
 
-  printf "${BLUE}Cloning MY_ENV...${NORMAL}\n"
-  hash git >/dev/null 2>&1 || {
-    printf "${RED}Error: git is not installed${NORMAL}\n\n"
-    exit 1
-  }
-  env git clone --depth=1 https://github.com/raphaellopes/env.git $MY_ENV || {
-    printf "${RED}Error: git clone of env repo failed${NORMAL}\n\n"
-    exit 1
-  }
+  #printf "${BLUE}Cloning MY_ENV...${NORMAL}\n"
+  #hash git >/dev/null 2>&1 || {
+  #  printf "${RED}Error: git is not installed${NORMAL}\n\n"
+  #  exit 1
+  #}
+  #env git clone --depth=1 https://github.com/raphaellopes/env.git $MY_ENV || {
+  #  printf "${RED}Error: git clone of env repo failed${NORMAL}\n\n"
+  #  exit 1
+  #}
 
 
   # Install Oh-My-Zsh
@@ -68,7 +68,8 @@ main() {
   # }
 
   # Install Plug.vim
-  env curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
+  # env curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
+  env curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
     printf "${RED}Error: Plug.vim install failed${NORMAL}\n\n"
     exit 1
   }

@@ -112,4 +112,5 @@ export PATH
 export HOMEBREW_GITHUB_API_TOKEN="4930f11277852a6f77ff1e83d7e41d7dbf0c542f"
 
 # FZF
-export FZF_DEFAULT_COMMAND="fd --type f"
+# export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_COMMAND="fdfind --type f"

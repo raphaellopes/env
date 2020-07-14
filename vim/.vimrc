@@ -621,7 +621,7 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'dhruvasagar/vim-dotoo'
 
 " Vim images
-Plug 'ashisha/image.vim'
+" Plug 'ashisha/image.vim'
 
 " Easy Motion
 Plug 'easymotion/vim-easymotion'

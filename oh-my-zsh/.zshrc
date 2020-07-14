@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-#export ZSH=~/.oh-my-zsh
+# export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -68,7 +68,8 @@ plugins=(git vi-mode docker docker-compose)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -97,6 +98,8 @@ alias vim=nvim
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias tmux="tmux -2" # enable 256 colors
+# export MY_ENV=~/.my-env
+# source $MY_ENV/oh-my-zsh/.zshrc
 
 hrm () {
   LC_ALL=C sed -i "/$1/d" $HISTFILE
@@ -121,4 +124,4 @@ then
   export PATH="$PATH:$ANDROID_HOME/platform-tools"
 fi
 
-
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
