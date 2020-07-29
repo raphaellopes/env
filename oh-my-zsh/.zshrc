@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 # export ZSH=~/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -7,6 +8,7 @@
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="juanghurtado"
 ZSH_THEME="miloshadzic"
+# ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -124,4 +126,9 @@ then
   export PATH="$PATH:$ANDROID_HOME/platform-tools"
 fi
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# @TODO: When installs and add synlink, the zsh does not work.
+#        It should be fixed and use the root file with synlink
+# export MY_ENV=$HOME/.my-env
+# source $MY_ENV/oh-my-zsh/.zshrc
+
+# [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
