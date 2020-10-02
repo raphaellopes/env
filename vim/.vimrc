@@ -592,6 +592,12 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 Plug 'sheerun/vim-mdx-js'
 
+" Vim ruby
+Plug 'vim-ruby/vim-ruby'
+
+" Vim fastlane
+Plug 'milch/vim-fastlane'
+
 
 " Multiple Cursor mode
 Plug 'terryma/vim-multiple-cursors'
