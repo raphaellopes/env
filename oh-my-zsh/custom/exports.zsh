@@ -84,26 +84,6 @@ fi
 # fi
 
 
-# Eclipse Home
-# if hash brew 2> /dev/null; then
-  # ECLIPSE_HOME="$(brew --prefix eclipse)"
-# else 
-  # ECLIPSE_HOME="$HOME/Programs/eclipse"
-# fi
-# if [[ -d "$ECLIPSE_HOME" ]]; then
-  # export ECLIPSE_HOME
-  # PATH="$ECLIPSE_HOME:$PATH"
-# fi
-
-
-# Denver
-# DENVER_HOME="$HOME/Workspaces/denver"
-# if [[ -s "$DENVER_HOME/.denver/rc" ]]; then
-  # export DENVER_HOME
-  # . "$DENVER_HOME/.denver/rc"
-# fi
-
-
 # PATH
 export PATH
 
@@ -115,3 +95,18 @@ export HOMEBREW_GITHUB_API_TOKEN="4930f11277852a6f77ff1e83d7e41d7dbf0c542f"
 # @TODO: Check why the fd is ot working with the alias
 # export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_DEFAULT_COMMAND="fdfind --type f"
+
+# Android SDK
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ANDROID_HOME="$HOME/Android/Sdk"
+if [[ -d "$ANDROID_HOME" ]]; then
+  export ANDROID_HOME
+  PATH="$ANDROID_HOME:$PATH"
+fi
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Android studio
+export PATH=$PATH:~/android-studio/bin
