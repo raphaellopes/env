@@ -95,6 +95,20 @@ main() {
     echo "Error: gitconfig symbolic link crash"
     # exit 1
   }
+
+  # ZSH config
+  {
+    # backup
+    if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
+      printf "${YELLOW}Found ~/.zshrc.${NORMAL} ${GREEN}Backing up to ~/.zshrc.pre-my-env${NORMAL}\n";
+      mv ~/.zshrc ~/.zshrc.pre-my-env;
+    fi
+    # create link
+    ln -s $MY_ENV/oh-my-zsh/.zshrc ~/.zshrc
+  } || {
+    echo "Error: zshrc symbolic link crash"
+    # exit 1
+  }
 }
 main
 

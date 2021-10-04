@@ -40,7 +40,7 @@ main() {
   # sed -i -e "s/env zsh/#env zsh/" /tmp/install-oh-my-zsh.sh
 
   # execute
-  sh /tmp/install-oh-my-zsh.sh || {
+  sh /tmp/install-oh-my-zsh.sh --skip-chsh --unattended || {
     printf "${RED}Error: oh-my-zsh install failed${NORMAL}\n\n"
     exit 1
   }
