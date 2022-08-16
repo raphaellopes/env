@@ -131,4 +131,7 @@ fi
 # export MY_ENV=$HOME/.my-env
 # source $MY_ENV/oh-my-zsh/.zshrc
 
-# [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'

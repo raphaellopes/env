@@ -203,3 +203,9 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " inoremap <expr><BS> deoplete#close_popup()."\<C-h>"
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""
+" end: FRONT-END Plugin
+""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""
