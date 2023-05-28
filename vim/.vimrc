@@ -462,7 +462,7 @@ Plug 'tpope/vim-rsi'
 Plug 'flazz/vim-colorschemes'
 " Plug 'Valloric/vim-valloric-colorscheme'
 Plug 'nanotech/jellybeans.vim'
-Plug 'monkoose/boa.vim'
+" Plug 'monkoose/boa.vim'
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'
