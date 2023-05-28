@@ -135,3 +135,9 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/raphael/Apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/raphael/Apps/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/raphael/Apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/raphael/Apps/google-cloud-sdk/completion.zsh.inc'; fi
