@@ -912,6 +912,9 @@ set signcolumn=yes
 " inoremap <expr><BS> deoplete#close_popup()."\<C-h>"
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+"
+" copilot
+Plug 'github/copilot.vim' 
 
 """"""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""
