@@ -703,7 +703,7 @@ let g:ale_php_phpcs_standard = 'PSR2'
 """"""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""
 if has('nvim')
-  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile', 'branch': 'release'}
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 else
