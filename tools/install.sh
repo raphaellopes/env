@@ -88,7 +88,8 @@ main() {
 
 
   # Install all plugins in vim
-  env vim +PlugInstall +qall
+  # env vim +PlugInstall +qall
+  env nvim --headless +PlugInstall +qall
 
 
   printf "${GREEN}"
