@@ -75,8 +75,6 @@ main() {
     printf "${RED}Error: Plug.vim install failed${NORMAL}\n\n"
     exit 1
   }
-  # Install all plugins in vim
-  env vim +PlugInstall +qall
 
   # Install tpm tmux plugin
   env git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins || {
@@ -87,6 +85,10 @@ main() {
 
   # Install fonts
   env sh $MY_ENV/fonts/install.sh
+
+
+  # Install all plugins in vim
+  env vim +PlugInstall +qall
 
 
   printf "${GREEN}"
