@@ -927,7 +927,7 @@ call plug#end() " END Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Work only after call plug#end
-" colo jellybeans
+colo jellybeans
 hi ColorColumn ctermbg=gray ctermfg=black guibg=#ffffff guifg=#000000
 hi NonText ctermfg=8 guifg=gray
 hi SpecialKey ctermfg=8 guifg=gray
