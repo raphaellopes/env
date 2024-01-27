@@ -32,6 +32,15 @@ Prerequisites for the Python modules:
 sudo apt-get install python-dev python-pip python3-dev python3-pip
 ```
 
+## Install the depencies
+- [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+
+### install all apps below
+> Review how to manually install each of them on ubuntu. It was tested only in Docker
+```
+curl tmux fd fzf zsh vim tree git xclip python3 nodejs npm ninja-build gettext make cmake g++ zip unzip neovim lazygit bottom go ripgrep alpine-sdk bash
+```
+
 
 ## Install environment
 
