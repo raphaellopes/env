@@ -48,6 +48,8 @@ main() {
    exit 1
   }
   env git clone --depth=1 https://github.com/raphaellopes/env.git $MY_ENV || {
+  env git checkout fix-install
+  env git pull origin fix-install
    printf "${RED}Error: git clone of env repo failed${NORMAL}\n\n"
    exit 1
   }
@@ -68,8 +70,8 @@ main() {
   # }
 
   # Install Plug.vim
-  # env curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
-  env curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
+  env curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
+  # env curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
 
     printf "${RED}Error: Plug.vim install failed${NORMAL}\n\n"
     exit 1
