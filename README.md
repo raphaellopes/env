@@ -32,6 +32,9 @@ Prerequisites for the Python modules:
 sudo apt-get install python-dev python-pip python3-dev python3-pip
 ```
 
+## Install the depencies
+- [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+
 
 ## Install environment
 
