@@ -68,6 +68,21 @@ main() {
     # exit 1
   }
 
+  # NVIM Init
+  {
+    # backup
+    if [ -f ~/.config/nvim/init.vim ] || [ -h ~/.config/nvim/init.vim ]; then
+      printf "${YELLOW}Found ~/.config/nvim/init.vim.${NORMAL} ${GREEN}Backing up to ~/.config/nvim/init.vim.pre-my-env${NORMAL}\n";
+      mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.pre-my-env;
+    fi
+    # create link
+    mkdir -p ~/.config/nvim
+    ln -s $MY_ENV/nvim/init.vim ~/.config/nvim/init.vim
+  } || {
+    echo "Error: nvim init.vim symbolic link crash"
+    # exit 1
+  }
+
   # TMUX.CONF
   {
     # backup
