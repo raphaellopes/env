@@ -31,42 +31,19 @@ main() {
 
   printf "${BLUE}Creating symbolic links...${NORMAL}\n"
 
-  # EMACS.D
+  # VIMRC
   # {
     # # backup
-    # if [ -d ~/.emacs.d ]; then
-      # printf "${YELLOW}Found ~/.emacs.d.${NORMAL} ${GREEN}Backing up to ~/.emacs.d.pre-my-env${NORMAL}\n";
-      # mv ~/.emacs.d ~/.emacs.d.pre-my-env;
-    # fi
-    # if [ -f ~/.emacs ] || [ -h ~/.emacs ]; then
-      # printf "${YELLOW}Found ~/.emacs.${NORMAL} ${GREEN}Backing up to ~/.emacs.pre-my-env${NORMAL}\n";
-      # mv ~/.emacs ~/.emacs.pre-my-env;
-    # fi
-    # if [ -f ~/.spacemacs ] || [ -h ~/.spacemacs ]; then
-      # printf "${YELLOW}Found ~/.spacemacs.${NORMAL} ${GREEN}Backing up to ~/.spacemacs.pre-my-env${NORMAL}\n";
-      # mv ~/.spacemacs ~/.spacemacs.pre-my-env;
+    # if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
+      # printf "${YELLOW}Found ~/.vimrc.${NORMAL} ${GREEN}Backing up to ~/.vimrc.pre-my-env${NORMAL}\n";
+      # mv ~/.vimrc ~/.vimrc.pre-my-env;
     # fi
     # # create link
-    # ln -s $MY_ENV/emacs.d ~/.emacs.d
-    # ln -s $MY_ENV/spacemacs ~/.spacemacs
+    # ln -s $MY_ENV/vim/.vimrc ~/.vimrc
   # } || {
-    # echo "Error: emacs.d symbolic link crash"
+    # echo "Error: vimrc symbolic link crash"
     # # exit 1
   # }
-
-  # VIMRC
-  {
-    # backup
-    if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
-      printf "${YELLOW}Found ~/.vimrc.${NORMAL} ${GREEN}Backing up to ~/.vimrc.pre-my-env${NORMAL}\n";
-      mv ~/.vimrc ~/.vimrc.pre-my-env;
-    fi
-    # create link
-    ln -s $MY_ENV/vim/.vimrc ~/.vimrc
-  } || {
-    echo "Error: vimrc symbolic link crash"
-    # exit 1
-  }
 
   # NVIM Init
   {
