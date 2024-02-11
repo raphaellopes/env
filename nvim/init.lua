@@ -11,6 +11,9 @@ vim.cmd("filetype indent on")
 -- Set to auto read when a file is changed from the outside
 vim.cmd("set autoread")
 
+-- Set the leader keymap
+vim.g.mapleader = ","
+
 --[[
   => Install lazy nvim for package manager
      Basically it will install lazy.nvim if it's not installed
@@ -30,7 +33,11 @@ vim.opt.rtp:prepend(lazypath)
 
 -- it loads lazy
 local plugins = {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  }
 }
 local opts = {}
 require("lazy").setup(plugins, opts)
@@ -38,3 +45,10 @@ require("lazy").setup(plugins, opts)
 -- setup the theme
 require("catppuccin").setup()
 vim.cmd.colorscheme "catppuccin"
+
+-- setup telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set("n", "<C-p>" builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<C-b>', builtin.buffers, {})
+
