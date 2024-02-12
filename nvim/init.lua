@@ -1,19 +1,3 @@
---[[ 
-  => General
-]]--
--- Sets how many lines of history VIM has to remember
-vim.cmd("set history=700")
-
--- Enable filetype plugins
-vim.cmd("filetype plugin on")
-vim.cmd("filetype indent on")
-
--- Set to auto read when a file is changed from the outside
-vim.cmd("set autoread")
-
--- Set the leader keymap
-vim.g.mapleader = ","
-
 --[[
   => Install lazy nvim for package manager
      Basically it will install lazy.nvim if it's not installed
@@ -31,45 +15,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- it loads lazy
-local plugins = {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  {
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    }
-  }
-}
-local opts = {}
-require("lazy").setup(plugins, opts)
-
--- setup the theme
-require("catppuccin").setup()
-vim.cmd.colorscheme "catppuccin"
-
--- setup telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<C-b>', builtin.buffers, {})
-
--- neo tree keymap
-vim.keymap.set('n', '<C-e>', ':Neotree filesystem reveal left<CR>', {})
-
--- setup treesitter
-local treesitterconfig = require('nvim-treesitter.configs')
-treesitterconfig.setup({
-  ensure_installed = { "typescript", "javascript", "html", "css", "json", "lua", "yaml", "tsx", "graphql", "bash", "json", "jsonc", "scss", "vim", "vue" },
-  highlight = { enable = true },
-  indent = { enable = true },
-})
-
+require("global-opts")
+require("lazy").setup("plugins")
