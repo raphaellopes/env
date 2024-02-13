@@ -39,7 +39,7 @@ main() {
       mv ~/.config/nvim/init.lua ~/.config/nvim/init.lua.pre-my-env;
     fi
     # create link
-    # mkdir -p ~/.config/nvim
+    mkdir -p ~/.config
     # ln -s $MY_ENV/nvim/init.lua ~/.config/nvim/init.lua
     ln -s $MY_ENV/nvim/ ~/.config/
   } || {
