@@ -31,20 +31,6 @@ main() {
 
   printf "${BLUE}Creating symbolic links...${NORMAL}\n"
 
-  # VIMRC
-  # {
-    # # backup
-    # if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
-      # printf "${YELLOW}Found ~/.vimrc.${NORMAL} ${GREEN}Backing up to ~/.vimrc.pre-my-env${NORMAL}\n";
-      # mv ~/.vimrc ~/.vimrc.pre-my-env;
-    # fi
-    # # create link
-    # ln -s $MY_ENV/vim/.vimrc ~/.vimrc
-  # } || {
-    # echo "Error: vimrc symbolic link crash"
-    # # exit 1
-  # }
-
   # NVIM Init
   {
     # backup
@@ -53,8 +39,8 @@ main() {
       mv ~/.config/nvim/init.lua ~/.config/nvim/init.lua.pre-my-env;
     fi
     # create link
-    mkdir -p ~/.config/nvim
-    ln -s $MY_ENV/nvim/init.lua ~/.config/nvim/init.lua
+    # mkdir -p ~/.config/nvim
+    # ln -s $MY_ENV/nvim/init.lua ~/.config/nvim/init.lua
     ln -s $MY_ENV/nvim/ ~/.config/
   } || {
     echo "Error: nvim init.vim symbolic link crash"
