@@ -54,7 +54,7 @@ main() {
     fi
     # create link
     mkdir -p ~/.config/nvim
-    ln -s $MY_ENV/nvim/init.lua ~/.config/nvim/init.lua
+    ln -s $MY_ENV/nvim ~/.config/
   } || {
     echo "Error: nvim init.vim symbolic link crash"
     # exit 1
