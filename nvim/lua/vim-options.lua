@@ -167,8 +167,8 @@ vim.keymap.set("n", "<C-h>", "<C-W>h", {})
 vim.keymap.set("n", "<C-l>", "<C-W>l", {})
 
  -- Useful mappings for managing  buffer
-vim.keymap.set("n", "<leader>bd", ":Bdelete<cr>", {})
-vim.keymap.set("n", "<leader>ba", ":bufdo Bdelete!<cr>", {})
+vim.keymap.set("n", "<leader>bd", ":bdelete<cr>", {})
+vim.keymap.set("n", "<leader>ba", ":bufdo bdelete!<cr>", {})
 vim.keymap.set("n", "<leader>bw", ":bufdo w<cr>", {})
 vim.keymap.set("n", "<leader>bn", ":bn<cr>", {})
 vim.keymap.set("n", "<leader>bp", ":bp<cr>", {})
