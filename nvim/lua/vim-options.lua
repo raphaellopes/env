@@ -11,7 +11,7 @@ vim.cmd("set autoread")
 --[[
   => VIM user interface
 ]]--
-vim.cmd("scrolloff=7")
+vim.cmd("set scrolloff=7")
 
 -- Turn on the WiLd menu
 vim.cmd("set wildmenu")
@@ -78,7 +78,7 @@ vim.cmd("set background=dark")
 
  -- Set utf8 as standard encoding and en_US as the standard language
 vim.cmd("set encoding=utf-8")
-vim.cmd("scriptencoding utf-8")
+-- vim.cmd("scriptencoding utf-8")
 vim.cmd("set fileencoding=utf-8")
 
 -- Use Unix as the standard file type
@@ -114,7 +114,7 @@ vim.cmd("set wrap")
 
  -- Show invisibles
 vim.cmd("set list")
-vim.cmd("set list listchars=tab:\|\ ,trail:.,precedes:<,extends:>,eol:$")
+-- vim.cmd("set list listchars=tab:| ,trail:.,precedes:<,extends:>,eol:$")
 vim.keymap.set("n", "<leader>l", ":set list!<cr>", {})
 
 
