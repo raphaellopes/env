@@ -1,4 +1,3 @@
--- vim.cmd("set list listchars=tab:| ,trail:.,precedes:<,extends:>,eol:$")
 vim.keymap.set("n", "<leader>l", ":set list!<cr>", {})
 
 

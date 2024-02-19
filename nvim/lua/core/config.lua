@@ -114,3 +114,28 @@ vim.cmd("set wrap")
 
  -- Show invisibles
 vim.cmd("set list")
+vim.opt.listchars:append({
+  tab = "| ",
+  trail = ".",
+  precedes = "<",
+  extends = ">",
+  eol = "$",
+})
+
+-- setup some tabs
+local setupTabs = function()
+  vim.cmd("set switchbuf=useopen,usetab,newtab")
+  vim.cmd("set showtabline=2")
+end
+pcall(setupTabs)
+
+-- Remember info about open buffers on close
+vim.cmd("set viminfo^=%")
+
+-- Return to last edit position when opening files (You want this!)
+vim.api.nvim_create_autocmd("BufReadPost", {
+  command = [[if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
+})
+
+-- Always show the status line
+vim.cmd("set laststatus=2")
