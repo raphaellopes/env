@@ -9,10 +9,8 @@ return {
         theme = "dracula",
       },
       tabline = {
-        lualine_a = {
-          lualine_a = {"buffers"},
-          lualine_z = {"tabs"}
-        }
+        lualine_a = {"buffers"},
+        lualine_z = {"tabs"}
       }
     }
   end,
