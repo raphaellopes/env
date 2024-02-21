@@ -7,9 +7,7 @@ RUN apk update
 # @TODO: Check if the following packages are really necessary.
 RUN apk add curl tmux fd fzf zsh vim tree git xclip python3 nodejs \
             npm ninja-build gettext make cmake g++ zip unzip neovim \
-            lazygit bottom go ripgrep alpine-sdk bash nerd-fonts \
-            font-terminus font-dejavu font-inconsolata font-noto \
-            font-noto-cjk font-awesome font-noto-extra
+            lazygit bottom go ripgrep alpine-sdk bash
 
 ENV LC_ALL en_IN.UTF-8
 ENV LANG en_IN.UTF-8
