@@ -1,9 +1,13 @@
 return {
-  "terrortylor/nvim-comment",
+  "numToStr/Comment.nvim",
   config = function()
-    require("nvim_comment").setup({
-      line_mapping = "<leader>c<space>",
-      operator_mapping = "<leader><leader>c<space>",
+    require("Comment").setup({
+      opleader = {
+        line = "<leader>c<space>",
+      },
+      toggler = {
+        line = "<leader>c<space>",
+      },
     })
   end,
 }
