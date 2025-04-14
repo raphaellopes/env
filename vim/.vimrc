@@ -140,7 +140,7 @@ set number
 syntax enable
 
 "colorscheme wombat256mod
-set background=dark
+" set background=dark
 
 
 " Set extra options when running in GUI mode
@@ -396,7 +396,7 @@ map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
-set pastetoggle=<F2>
+" set pastetoggle=<F2>
 
 
 
@@ -459,13 +459,15 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-rsi'
 
 " Vim colors
-Plug 'flazz/vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
 " Plug 'Valloric/vim-valloric-colorscheme'
 Plug 'nanotech/jellybeans.vim'
 " Plug 'monkoose/boa.vim'
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'
+" Plug 'nvim-tree/nvim-web-devicons'
+" Plug 'echasnovski/mini.nvim'
 
 " Vim diff
 Plug 'chrisbra/vim-diff-enhanced'
@@ -530,11 +532,14 @@ Plug 'myusuf3/numbers.vim'
 Plug 'godlygeek/tabular'
 
 " vim-markdown
-Plug 'tpope/vim-markdown'
+" Plug 'tpope/vim-markdown'
+
+Plug 'MeanderingProgrammer/render-markdown.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Vim preview (.md, .html)
 " <leader>P
-Plug 'spf13/vim-preview'
+" Plug 'spf13/vim-preview'
 
 " Vim Blade template
 Plug 'xsbeats/vim-blade'
@@ -590,7 +595,7 @@ Plug 'editorconfig/editorconfig-vim'
 " Styled components syntax highlight
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
-Plug 'sheerun/vim-mdx-js'
+" Plug 'sheerun/vim-mdx-js'
 
 " Vim ruby
 Plug 'vim-ruby/vim-ruby'
@@ -914,7 +919,16 @@ set signcolumn=yes
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 "
 " copilot
-Plug 'github/copilot.vim' 
+" Plug 'github/copilot.vim' 
+
+" augment
+Plug 'augmentcode/augment.vim'
+nnoremap <leader>aac :Augment chat<CR>
+vnoremap <leader>aac :Augment chat<CR>
+nnoremap <leader>aan :Augment chat-new<CR>
+nnoremap <leader>aat :Augment chat-toggle<CR>
+let g:augment_workspace_folders = ["/home/raphael/Workspace/practice/practice-web/"]
+
 
 """"""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""
@@ -928,9 +942,9 @@ call plug#end() " END Plugins
 
 " Work only after call plug#end
 colo jellybeans
-hi ColorColumn ctermbg=gray ctermfg=black guibg=#ffffff guifg=#000000
-hi NonText ctermfg=8 guifg=gray
-hi SpecialKey ctermfg=8 guifg=gray
+" hi ColorColumn ctermbg=gray ctermfg=black guibg=#ffffff guifg=#000000
+" hi NonText ctermfg=8 guifg=gray
+" hi SpecialKey ctermfg=8 guifg=gray
 
 " Load env rc
 " call myenv#load#env()
@@ -1064,3 +1078,15 @@ command! -bang -nargs=? -complete=dir Files
 """""
 " end frontend
 " """
+"
+lua << EOF
+require('nvim-treesitter.configs').setup({
+  highlight = { enable = true },
+  ensure_installed = { "javascript", "typescript", "tsx", "html", "css", "scss", "json", "json5", "jsonc", "graphql", "yaml", "markdown", "markdown_inline", "bash", "lua", "vim", "vimdoc", "query" },
+})
+
+require('render-markdown').setup({
+  heading = { sign = false, position = 'inline' },
+})
+
+EOF
