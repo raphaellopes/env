@@ -140,5 +140,21 @@
     "key": "ctrl-e",
     "command": "workbench.action.toggleSidebarVisibility",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "runCommands",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus",
+    "args": {
+      "commands": [
+        "explorer.openAndPassFocus",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    }
+  },
+  {
+    "key": "enter",
+    "command": "list.toggleExpand",
+    "when": "explorerViewletVisible && filesExplorerFocus && explorerResourceIsFolder && !inputFocus"
   }
 ]
