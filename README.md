@@ -48,3 +48,9 @@ curl tmux fd fzf zsh vim tree git xclip python3 nodejs npm ninja-build gettext m
 $ sh -c "$(wget https://raw.github.com/raphaellopes/env/master/tools/install.sh -O -)"
 ```
 
+```typescript
+interface Test {
+    name?: string;
+}
+```
+
