@@ -88,6 +88,34 @@ main() {
     echo "Error: zshrc symbolic link crash"
     # exit 1
   }
+
+  # VSCODE config
+  {
+    # backup
+    if [ -f ~/.config/Code/User/settings.json ] || [ -h ~/.config/Code/User/settings.json ]; then
+      printf "${YELLOW}Found ~/.config/Code/User/settings.json.${NORMAL} ${GREEN}Backing up to ~/.config/Code/User/settings.json.pre-my-env${NORMAL}\n";
+      mv ~/.config/Code/User/settings.json ~/.config/Code/User/settings.json.pre-my-env;
+    fi
+    # create link
+    ln -s $MY_ENV/vscode/settings.json ~/.config/Code/User/settings.json
+  } || {
+    echo "Error: vscode symbolic link crash"
+    # exit 1
+  }
+
+# VSCode keybindings
+  {
+    # backup
+    if [ -f ~/.config/Code/User/keybindings.json ] || [ -h ~/.config/Code/User/keybindings.json ]; then
+      printf "${YELLOW}Found ~/.config/Code/User/keybindings.json.${NORMAL} ${GREEN}Backing up to ~/.config/Code/User/keybindings.json.pre-my-env${NORMAL}\n";
+      mv ~/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json.pre-my-env;
+    fi
+    # create link
+    ln -s $MY_ENV/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+  } || {
+    echo "Error: vscode symbolic link crash"
+    # exit 1
+  }
 }
 main
 
