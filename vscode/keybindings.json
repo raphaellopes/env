@@ -156,5 +156,17 @@
     "key": "enter",
     "command": "list.toggleExpand",
     "when": "explorerViewletVisible && filesExplorerFocus && explorerResourceIsFolder && !inputFocus"
+  },
+
+  // Augment keybindings
+  {
+    "key": ", a c",
+    "command": "vscode-augment.focusAugmentPanel",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": ", a c",
+    "command": "vscode-augment.focusAugmentPanel",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   }
 ]
