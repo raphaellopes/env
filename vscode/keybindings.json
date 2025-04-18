@@ -82,6 +82,11 @@
     "command": "editor.action.addSelectionToNextFindMatch",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
+  {
+    "key": ", c space",
+    "command": "editor.action.commentLine",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorFocus || !inputFocus)"
+  }
 
   // File explore
   {
