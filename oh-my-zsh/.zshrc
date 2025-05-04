@@ -126,6 +126,9 @@ then
   export PATH="$PATH:$ANDROID_HOME/platform-tools"
 fi
 
+# nvim installed via snap
+export PATH=$HOME/bin:/usr/local/bin:$PATH:/snap/bin/
+
 # @TODO: When installs and add synlink, the zsh does not work.
 #        It should be fixed and use the root file with synlink
 # export MY_ENV=$HOME/.my-env

@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Set source and target directories
-powerline_fonts_dir=$( cd "$( dirname "$0" )" && pwd )
-
-find_command="find \"$powerline_fonts_dir\" \( -name '*.[o,t]tf' -or -name '*.pcf.gz' \) -type f -print0"
+# download the font
+wget -O DejaVuSansMono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/DejaVuSansMono.zip
 
 if [[ `uname` == 'Darwin' ]]; then
   # MacOS
@@ -14,9 +12,8 @@ else
   mkdir -p $font_dir
 fi
 
-# Copy all fonts to user fonts directory
-echo "Copying fonts..."
-eval $find_command | xargs -0 -I % cp "%" "$font_dir/"
+# unzip the font
+unzip DejaVuSansMono.zip -d $font_dir
 
 # Reset font cache on Linux
 if command -v fc-cache @>/dev/null ; then

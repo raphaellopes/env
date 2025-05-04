@@ -31,40 +31,19 @@ main() {
 
   printf "${BLUE}Creating symbolic links...${NORMAL}\n"
 
-  # EMACS.D
-  # {
-    # # backup
-    # if [ -d ~/.emacs.d ]; then
-      # printf "${YELLOW}Found ~/.emacs.d.${NORMAL} ${GREEN}Backing up to ~/.emacs.d.pre-my-env${NORMAL}\n";
-      # mv ~/.emacs.d ~/.emacs.d.pre-my-env;
-    # fi
-    # if [ -f ~/.emacs ] || [ -h ~/.emacs ]; then
-      # printf "${YELLOW}Found ~/.emacs.${NORMAL} ${GREEN}Backing up to ~/.emacs.pre-my-env${NORMAL}\n";
-      # mv ~/.emacs ~/.emacs.pre-my-env;
-    # fi
-    # if [ -f ~/.spacemacs ] || [ -h ~/.spacemacs ]; then
-      # printf "${YELLOW}Found ~/.spacemacs.${NORMAL} ${GREEN}Backing up to ~/.spacemacs.pre-my-env${NORMAL}\n";
-      # mv ~/.spacemacs ~/.spacemacs.pre-my-env;
-    # fi
-    # # create link
-    # ln -s $MY_ENV/emacs.d ~/.emacs.d
-    # ln -s $MY_ENV/spacemacs ~/.spacemacs
-  # } || {
-    # echo "Error: emacs.d symbolic link crash"
-    # # exit 1
-  # }
-
-  # VIMRC
+  # NVIM Init
   {
     # backup
-    if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
-      printf "${YELLOW}Found ~/.vimrc.${NORMAL} ${GREEN}Backing up to ~/.vimrc.pre-my-env${NORMAL}\n";
-      mv ~/.vimrc ~/.vimrc.pre-my-env;
+    if [ -f ~/.config/nvim/init.lua ] || [ -h ~/.config/nvim/init.lua ]; then
+      printf "${YELLOW}Found ~/.config/nvim/init.lua.${NORMAL} ${GREEN}Backing up to ~/.config/nvim/init.lua.pre-my-env${NORMAL}\n";
+      mv ~/.config/nvim/init.lua ~/.config/nvim/init.lua.pre-my-env;
     fi
     # create link
-    ln -s $MY_ENV/vim/.vimrc ~/.vimrc
+    mkdir -p ~/.config
+    # ln -s $MY_ENV/nvim/init.lua ~/.config/nvim/init.lua
+    ln -s $MY_ENV/nvim/ ~/.config/
   } || {
-    echo "Error: vimrc symbolic link crash"
+    echo "Error: nvim init.vim symbolic link crash"
     # exit 1
   }
 
@@ -107,6 +86,34 @@ main() {
     ln -s $MY_ENV/oh-my-zsh/.zshrc ~/.zshrc
   } || {
     echo "Error: zshrc symbolic link crash"
+    # exit 1
+  }
+
+  # VSCODE config
+  {
+    # backup
+    if [ -f ~/.config/Code/User/settings.json ] || [ -h ~/.config/Code/User/settings.json ]; then
+      printf "${YELLOW}Found ~/.config/Code/User/settings.json.${NORMAL} ${GREEN}Backing up to ~/.config/Code/User/settings.json.pre-my-env${NORMAL}\n";
+      mv ~/.config/Code/User/settings.json ~/.config/Code/User/settings.json.pre-my-env;
+    fi
+    # create link
+    ln -s $MY_ENV/vscode/settings.json ~/.config/Code/User/settings.json
+  } || {
+    echo "Error: vscode symbolic link crash"
+    # exit 1
+  }
+
+# VSCode keybindings
+  {
+    # backup
+    if [ -f ~/.config/Code/User/keybindings.json ] || [ -h ~/.config/Code/User/keybindings.json ]; then
+      printf "${YELLOW}Found ~/.config/Code/User/keybindings.json.${NORMAL} ${GREEN}Backing up to ~/.config/Code/User/keybindings.json.pre-my-env${NORMAL}\n";
+      mv ~/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json.pre-my-env;
+    fi
+    # create link
+    ln -s $MY_ENV/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+  } || {
+    echo "Error: vscode symbolic link crash"
     # exit 1
   }
 }

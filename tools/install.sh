@@ -47,7 +47,8 @@ main() {
    printf "${RED}Error: git is not installed${NORMAL}\n\n"
    exit 1
   }
-  env git clone --depth=1 https://github.com/raphaellopes/env.git $MY_ENV || {
+  # @TODO: remove the branch name after finishing
+  env git clone -b refactor-with-lua --depth=1 https://github.com/raphaellopes/env.git $MY_ENV || {
    printf "${RED}Error: git clone of env repo failed${NORMAL}\n\n"
    exit 1
   }
@@ -60,21 +61,6 @@ main() {
   # Create symbolic links
   env sh $MY_ENV/tools/create-symlinks.sh
 
-
-  # Install spacemacs
-  # env git clone --depth=1 https://github.com/syl20bnr/spacemacs $MY_ENV/emacs.d/spacemacs || {
-    # printf "${RED}Error: Spacemacs install failed${NORMAL}\n\n"
-    # exit 1
-  # }
-
-  # Install Plug.vim
-  # env curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
-  env curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
-    printf "${RED}Error: Plug.vim install failed${NORMAL}\n\n"
-    exit 1
-  }
-  # Install all plugins in vim
-  env vim +PlugInstall +qall
 
   # Install tpm tmux plugin
   env git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins || {
